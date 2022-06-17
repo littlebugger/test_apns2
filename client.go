@@ -186,9 +186,6 @@ func (c *Client) PushWithContext(ctx Context, n *Notification) (*Response, error
 	setHeaders(request, n)
 
 	reqDump, err := httputil.DumpRequestOut(request, true)
-	if err != nil {
-		log.Fatal(err)
-	}
 
 	log.Info(ctx, "APNS2",
 		log.String("req:", string(reqDump)))
