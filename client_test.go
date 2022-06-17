@@ -18,9 +18,9 @@ import (
 
 	"golang.org/x/net/http2"
 
-	apns "github.com/sideshow/apns2"
-	"github.com/sideshow/apns2/certificate"
-	"github.com/sideshow/apns2/token"
+	apns "github.com/littlebugger/test_apns2"
+	"github.com/littlebugger/test_apns2/certificate"
+	"github.com/littlebugger/test_apns2/token"
 	"github.com/stretchr/testify/assert"
 )
 

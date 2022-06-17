@@ -14,7 +14,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/sideshow/apns2/token"
+	"github.com/littlebugger/test_apns2/token"
 	"gitlab.sbmt.io/paas/go-libs/pkg/log"
 	"golang.org/x/net/http2"
 )
