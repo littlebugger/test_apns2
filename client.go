@@ -17,6 +17,7 @@ import (
 	"github.com/littlebugger/test_apns2/token"
 	"gitlab.sbmt.io/paas/go-libs/pkg/log"
 	"golang.org/x/net/http2"
+	"net/http/httputil"
 )
 
 // Apple HTTP/2 Development & Production urls
@@ -184,8 +185,13 @@ func (c *Client) PushWithContext(ctx Context, n *Notification) (*Response, error
 
 	setHeaders(request, n)
 
+	reqDump, err := httputil.DumpRequestOut(request, true)
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	log.Info(ctx, "APNS2",
-		log.Any("req:", request))
+		log.String("req:", string(reqDump)))
 
 	response, err := c.HTTPClient.Do(request)
 	if err != nil {
