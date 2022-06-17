@@ -15,6 +15,7 @@ import (
 	"time"
 
 	"github.com/sideshow/apns2/token"
+	"gitlab.sbmt.io/paas/go-libs/pkg/log"
 	"golang.org/x/net/http2"
 )
 
@@ -182,6 +183,9 @@ func (c *Client) PushWithContext(ctx Context, n *Notification) (*Response, error
 	}
 
 	setHeaders(request, n)
+
+	log.Info(ctx, "APNS2",
+		log.Any("req:", request))
 
 	response, err := c.HTTPClient.Do(request)
 	if err != nil {
